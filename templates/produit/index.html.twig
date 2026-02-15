@@ -42,6 +42,24 @@
         {% endfor %}
         </li>
 
+        <li>
+        <h2>Jamais acheté :</h2>
+         {% for item in jamaisAchete %}
+        <p>Produit : {{item.nom}}</p>
+        {% endfor %}
+        </li>
+        
+        <li>
+        <h2>Chiffre d'affaire par categorie:</h2>
+         {% for item in chiffreAffaireParCategorie %}
+        <p>Categorie : {{item.categorie}}</p>
+        <p>Chiffre d'affaire : {{ item.chiffre_affaire}}</p>
+        {% endfor %}
+        </li>
+
+        
+        
+
         
 </ul>
 

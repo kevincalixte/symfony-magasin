@@ -48,6 +48,14 @@ INSERT INTO produit (id, nom, prix_unitaire, categorie) VALUES
 (9, 'Trousse', 8.00, 'Bagagerie'),
 (10, 'Tablette', 120.00, 'Electronique');
 
+-- 5 produits jamais commandés
+INSERT INTO produit (id, nom, prix_unitaire, categorie) VALUES
+(11, 'Pochette', 3.50, 'Bagagerie'),
+(12, 'Feutre', 2.20, 'Papeterie'),
+(13, 'Classeur', 4.00, 'Papeterie'),
+(14, 'Surligneur', 1.80, 'Papeterie'),
+(15, 'Chargeur USB', 9.90, 'Electronique');
+
 
 -- Commandes
 INSERT INTO commande (id, client_id, date_commande) VALUES

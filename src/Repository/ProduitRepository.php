@@ -16,7 +16,16 @@ class ProduitRepository extends ServiceEntityRepository
         parent::__construct($registry, Produit::class);
     }
 
-    
+       public function jamaisAchete()
+
+    {
+        return $this->createQueryBuilder("p")
+            ->leftJoin('p.commandeProduits', 'cp')
+            ->where('cp.id IS NULL')
+            ->getQuery()
+            ->getResult();;
+    }
+
     //    /**
     //     * @return Produit[] Returns an array of Produit objects
     //     */

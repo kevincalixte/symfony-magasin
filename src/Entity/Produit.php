@@ -27,6 +27,9 @@ class Produit
     #[ORM\OneToMany(targetEntity: CommandeProduit::class, mappedBy: 'produit')]
     private Collection $commandeProduits;
 
+    #[ORM\Column(length: 100)]
+    private ?string $categorie = null;
+
     public function __construct()
     {
         $this->commandeProduits = new ArrayCollection();
@@ -87,6 +90,18 @@ class Produit
                 $commandeProduit->setProduit(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCategorie(): ?string
+    {
+        return $this->categorie;
+    }
+
+    public function setCategorie(string $categorie): static
+    {
+        $this->categorie = $categorie;
 
         return $this;
     }

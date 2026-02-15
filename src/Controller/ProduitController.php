@@ -7,7 +7,6 @@ use App\Repository\CommandeProduitRepository;
 use App\Repository\CommandeRepository;
 use App\Repository\ProduitRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
@@ -26,9 +25,13 @@ final class ProduitController extends AbstractController
         $chiffreAffaireParProduit = $cpr->chiffreAffaireParProduit();
         $chiffreAffaireParclient = $cpr->chiffreAffaireParClient();
         $total_commande_mois = $cr->commandeDuMois();
+        $jamaisAchete = $pr->jamaisAchete();
+        $chiffreAffaireParCategorie = $cpr->chiffreAffaireParCategorie();
         // $exercice = $cr->exercice();
         // $exercice = $cpr->exercice();
         // dd($exercice);
+        // dd($jamaisAchete);
+        // dd($chiffreAffaireParCategorie);
         return $this->render('produit/index.html.twig', [
             'produits' => $produits,
             'isAdmin' => $isAdmin,
@@ -36,6 +39,8 @@ final class ProduitController extends AbstractController
             'caClient' => $chiffreAffaireParclient,
             'total_vendu' => $total_vendu,
             'total_commande_mois' => $total_commande_mois,
+            'jamaisAchete' => $jamaisAchete,
+            'chiffreAffaireParCategorie' => $chiffreAffaireParCategorie,
         ]);
     }
 

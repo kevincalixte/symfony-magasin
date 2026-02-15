@@ -93,7 +93,17 @@ class CommandeProduitRepository extends ServiceEntityRepository
     //     ;
     // }
 
+    public function chiffreAffaireParCategorie() {
+        return $this->createQueryBuilder("cp")
+        ->select("p.categorie", "SUM(cp.quantite * p.prix_unitaire) AS chiffre_affaire")
+        ->join("cp.produit", "p")
+        ->groupBy("p.categorie")
+        ->orderBy("chiffre_affaire", "DESC")
+        ->getQuery()
+        ->getArrayResult()
 
+        ;
+    }
 
     //    /**
     //     * @return CommandeProduit[] Returns an array of CommandeProduit objects

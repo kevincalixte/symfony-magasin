@@ -42,7 +42,7 @@ class CommandeRepository extends ServiceEntityRepository
     //         ->join("cp.produit", "p")
     //         ->where("co.date_commande >= :firstDay")
     //         ->setParameter("firstDay",$firstDay)
-    //         ->orderBy("co.date_commande","ASC")
+    //         ->orderBy("co.date_commande","ASC") 
     //         ->getQuery()
     //         ->getArrayResult()
 
