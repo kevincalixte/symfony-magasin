@@ -1,5 +1,7 @@
 ![diagram](image-2.png)
 ![produits](image.png)
+![produits2](image-3.png)
+![produits3](image-4.png)
 ![admin](image-1.png)
 
 # Exercice 1 Chiffre d'affaire par produit
