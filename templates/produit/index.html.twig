@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Magasin - Produits{% endblock %}
+
+{% block body %}
+<h1>Produits :</h1>
+<ul>
+        {% for produit in produits %}
+        <li>Nom : {{produit.nom}} - Prix unitaire : {{produit.prixUnitaire|number_format(2,'.','')}}</li>
+        {% if isAdmin %}
+
+        {% for item in caProduit %}
+        {% if item.id == produit.id %}
+        <p>Chiffre d'affaire : {{item.chiffreAffaires|number_format(2,'.','')}}</p>
+        {% endif %}
+        {% endfor %}
+
+        {% endif %}
+        {% endfor %}
+
+        <li>
+        <h2>Top 3 des produits les plus vendus :</h2>
+        {% for item in total_vendu %}
+        <p>{{item.nom}} -> {{item.total_vendu}} unités</p>
+        {% endfor %}
+        </li>
+
+        <li>
+        <h2>Chiffre d'affaire par client :</h2>
+         {% for item in caClient %}
+        <p>{{item.email}} : {{item.chiffre_affaires|number_format(2,'.','')}}</p>
+        {% endfor %}
+        </li>
+
+        <li>
+        <h2>Commandes du mois :</h2>
+         {% for item in total_commande_mois %}
+        <p>Id : {{item.id}}</p>
+        <p>Date : {{ item.date|date('d/m/Y H:i') }}</p>
+        <p>Produit : {{item.produit}}</p>
+        <p>Quantite : {{item.quantite}}</p>
+        {% endfor %}
+        </li>
+
+        
+</ul>
+
+{% if isAdmin %}
+<a href="{{ path('admin') }}">Accéder au menu admin</a>
+{% endif %}
+{% endblock %}
